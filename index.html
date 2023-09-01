@@ -9,11 +9,32 @@
 </head>
 <body>
     <header>
-      
+        <div class="flex container mt-10  items-center  justify-between">
+          <div class="ml-12">
+            <img src="Logo.png" alt="" srcset="">
+          </div>
+          <div>
+            <button class="btn btn-active">Sort by view</button>
+          </div>
+          <div class="mr-12">
+            <button onclick="location.href='http://127.0.0.1:5500/Blog.html';" class="btn btn-secondary">Blog</button>               
+          </div>
+        </div>
+        <div class="m-10"><hr></div>
     </header>
-    <main class="container mx-auto m-16 p-12">
+    <main class="container mx-auto m-10 pl-12 pr-12">
+      <!-- all search button here -->
+        <section>
+         <div id="button-container"  class="flex justify-center text-center mb-9 gap-x-10">
+          <!-- <button  class="btn btn-active btn-secondary">All</button> -->
+          <!-- <button onclick="music()" class="btn btn-outline btn-accent">Music</button>
+          <button onclick="comedy()" class="btn btn-outline btn-warning">Comedy</button>
+          <button onclick="drawing()" class="btn btn-outline btn-primary">Drawing</button> -->
+         </div>
+        </section>
+        <!-- all card here  -->
       <section>
-        <div  id="tube-container" class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8">
+        <div id="tube-container" class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8">
           <!-- <div class="card w-96 bg-base-100 shadow-xl">
             <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
             <div class="card-body">

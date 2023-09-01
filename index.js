@@ -1,18 +1,38 @@
-const heroTube = async () => {
-    const res  = await fetch('https://openapi.programming-hero.com/api/videos/category/1000');
-    const data = await res.json();
-    const tube = data.data ;
-    // console.log(tube);
-    displayTube(tube);
+// --------click button here ....
+const buttonTube = async () => {
+    const btn = await fetch('https://openapi.programming-hero.com/api/videos/categories');
+    const button = await btn.json();
+    const hug = button.data;
+    // console.log(hug);
+    displayButton(hug);
 
-} 
+}
 
-const displayTube = tube => {
+const displayButton = hug => {
+     
+    const buttonContainer = document.getElementById('button-container')
+    hug.forEach(huge => {
+       console.log(huge);
+       const tubeButton = document.createElement('div');
+       tubeButton.classList = `text-center mb-9 gap-x-10`;
+       tubeButton.innerHTML = `
+       <button onclick ="handleButton(${huge.category_id? huge.category_id : "<span>Oops!!sorry,There is no content here</span>"})" class="btn btn-active">${huge.category}</button>
+       `;
+       buttonContainer.appendChild(tubeButton);
+    }); 
+}
 
-    const tubeContainer = document.getElementById('tube-container')
+const handleButton = async(okkButton) => {
+    const tip = await fetch(`https://openapi.programming-hero.com/api/videos/category/${okkButton}`);
+    const tipButton = await tip.json();
+
+    const tubeContainer = document.getElementById('tube-container');
+
+
+    tubeContainer.innerHTML = " ";
 
     //  1. loop er opre call kora lagbe re ...
-    tube.forEach(tubes => {
+    tipButton.data.forEach(tubes => {
         console.log(tubes);
         // 2. create a div
         const tubeCard = document.createElement('div');
@@ -36,9 +56,12 @@ const displayTube = tube => {
         `;
         // 4. append Child ....
         tubeContainer.appendChild(tubeCard) ;
-
-
     });
+
+    
 }
 
-heroTube();
+
+handleButton(1000);
+
+buttonTube();
