@@ -16,7 +16,7 @@ const displayButton = hug => {
        const tubeButton = document.createElement('div');
        tubeButton.classList = `text-center mb-9 gap-x-10`;
        tubeButton.innerHTML = `
-       <button onclick ="handleButton(${huge.category_id? huge.category_id : "<span>Oops!!sorry,There is no content here</span>"})" class="btn btn-active">${huge.category}</button>
+       <button onclick ="handleButton(${huge?.category_id? huge?.category_id : `<span><img src="icon.png"/>Oops!!sorry,There is no content here</span>`})" class="btn btn-active">${huge.category}</button>
        `;
        buttonContainer.appendChild(tubeButton);
     }); 
@@ -44,11 +44,13 @@ const handleButton = async(okkButton) => {
         <div class="  ">
         <h2 class="flex gap-x-2">
           <img src="${tubes.authors[0].profile_picture}" class="w-10 h-10 rounded-full"/>
-         <div class="font-medium pb-2">${tubes.title}</div>
+         <div class="font-medium">${tubes.title}</div>
+        
           </h2>
-          <div class="flex gap-2"> <h2 class="pb-1 text-gray-500">${tubes.authors[0].profile_name}</h2>
-          <p>${tubes.authors[0].verified}</p></div>
-          <p class="text-gray-500">${tubes.others.views} views </p>
+          <div class="flex gap-2 pl-11"> <h2 class="text-gray-500">${tubes.authors[0].profile_name}</h2>
+         <span><img src="${tubes.authors[0]?.verified}"/>
+         </span></div>
+          <p class="text-gray-500 pl-11">${tubes.others.views} views </p>
           <div class="justify-end">
            
           </div>
